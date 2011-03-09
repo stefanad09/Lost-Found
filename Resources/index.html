@@ -1,0 +1,106 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+  <title>Page Title</title> 
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+  <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+</head> 
+<body> 
+	
+<!-- / MAIN PAGE --> 
+<div data-role="page">
+  <div data-role="header">
+    <h1>Page Title</h1>
+  </div>
+
+  <div data-role="content"> 
+    <div data-role="collapsible" data-state="collapsed">
+	    <h3>I have found something!</h3>
+		<ul data-role="listview" data-inset="true">
+	      <li><a href="#register" data-transition="flip">Register a find</a></li>
+	      <li><a href="#" data-transition="flip">Goto map</a></li>
+	      <li><a href="#items" data-transition="flip">Goto found stuff now</a></li>
+	    </ul>    
+  	</div>
+  </div>
+
+<div data-role="content">
+  <div data-role="collapsible" data-state="collapsed">
+  <h3>I have lost something.</h3>
+
+   <form action="#" method="get"> 
+    <div data-role="fieldcontain">
+	    <label for="search">Search by keywords:</label>
+	    <input type="search" name="keywords" id="search" value="" />
+	</div>
+   </form>
+
+   <form action="#" method="get"> 
+    <div data-role="fieldcontain">
+	    <label for="search">Search by location:</label>
+	    <input type="search" name="location" id="search" value="" />
+	</div>
+	</form>
+   </div>  
+  </div>
+</div>
+<!-- /END OF MAIN PAGE -->
+
+<!-- /REGISTER A FIND PAGE -->
+ <div data-role="page" id="register">
+  <div data-role="header">
+    <h1>Make a find</h1>
+  </div>
+    <div data-role="content">
+    
+    <form action="#" method="get"> 
+    <div data-role="fieldcontain">
+	    <label for="text">Input search keywords here</label>
+	    <input type="search" name="keys" id="search" value="" />
+	</div>
+    </form>
+     
+     <div data-role="fieldcontain">
+       	<label for="textarea">Description</label>
+		<textarea cols="40" rows="10" name="textarea" id="textarea"></textarea>
+     </div>
+     
+     <div data-role="fieldcontain">
+       <label for="finder">Finders mail</label>
+       <input type="text" name="finder" id="finder" value=""  />
+     </div>
+     
+     <div class="ui-body ui-body-g">
+     <br /><br />
+     <fieldset class="ui-grid-a">
+				<div class="ui-block-a"><button type="submit" data-theme="d">Cancel</button></div>
+				<div class="ui-block-b"><button type="submit" data-theme="a">Submit</button></div>
+	  </fieldset>
+     </div>   
+  </div>
+<!-- /END OF REGISTER A FIND PAGE -->
+</div>
+
+<!-- /FINDINGS LIST PAGE -->
+<div data-role="page" id="items">
+  <div data-role="header">
+    <h1>Listed Findings</h1>
+  </div>
+
+  	<div data-role="content">
+		<ul data-role="listview">
+			
+			<li>
+				<img src="" />
+				<h3><a href="">Persons</a></h3>
+				<p>Lost person</p>
+			</li>
+			
+		</ul>
+	</div>
+</div><!-- /END OF FINDINGS LIST PAGE -->
+</div>
+
+</body>
+</html>
