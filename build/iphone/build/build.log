@@ -5,7 +5,7 @@ reporting an issue to help us understand your environment, build settings
 and aid in debugging. Please attach this log to any issue that you report.
 ================================================================================
 
-Starting build at 03/09/11 14:44
+Starting build at 03/10/11 12:46
 
 Build details:
 
@@ -18,7 +18,7 @@ Script arguments:
    /Library/Application Support/Titanium/mobilesdk/osx/1.6.0/iphone/builder.py
    simulator
    "4.2"
-   "/Users/stefanstjernberg/Desktop/lostapp"
+   "/Users/stefanstjernberg/Lost-Found"
    com.stefanstjernberg.lostandfound
    "lostapp"
    iphone
@@ -30,7 +30,7 @@ Xcode path is: /Developer
 
 
 githash=9882e81, existing_git_hash=9882e81
-writing contents of /Users/stefanstjernberg/Desktop/lostapp/build/iphone/project.xcconfig:
+writing contents of /Users/stefanstjernberg/Lost-Found/build/iphone/project.xcconfig:
 
 TI_VERSION=1.6.0
 TI_SDK_DIR=/Library/Application Support/Titanium/mobilesdk/osx/$(TI_VERSION)/iphone
