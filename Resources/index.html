@@ -2,17 +2,64 @@
 <html> 
   <head> 
   <title>Page Title</title> 
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
-  <script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+  
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+  
+	<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+  	<script src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+
+	<script>  
+        jQuery(window).ready(function(){  
+            jQuery("#geoButton").click(initiate_geolocation);  
+        });  
+
+        function initiate_geolocation() {  
+            navigator.geolocation.getCurrentPosition(handle_geolocation_query,handle_errors);  
+        }  
+
+        function handle_errors(error)  
+        {  
+            switch(error.code)  
+            {  
+                case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
+                break;  
+
+                case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
+                break;  
+
+                case error.TIMEOUT: alert("retrieving position timed out");  
+                break;  
+
+                default: alert("unknown error");  
+                break;  
+            }  
+        }  
+
+        function handle_geolocation_query(position)  
+		{  
+		    var image_url = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + position.coords.latitude + "," +  
+		                    position.coords.longitude + "&zoom=14&size=300x400&markers=color:blue|label:S|" +  
+		                    position.coords.latitude + ',' + position.coords.longitude;  
+
+		    jQuery("#map").remove();  
+		    jQuery(document.body).append(  
+		        jQuery(document.createElement("img")).attr("src", image_url).attr('id','map')  
+		    );  
+		} 
+    </script>
+  
+
 </head> 
 <body> 
 	
-<!-- / MAIN PAGE --> 
+<!-- / MAIN (THE HOME) PAGE --> 
+
 <div data-role="page" id="home">
   <div data-role="header">
     <h1>Page Title</h1>
   </div>
+
+<!-- UPPER NAVBAR DROPDWN -->
 
   <div data-role="content"> 
     <div data-role="collapsible" data-state="collapsed">
@@ -24,6 +71,8 @@
 	    </ul>    
   	</div>
   </div>
+
+<!-- /SECOND NAVBAR DROPDWN -->
 
 <div data-role="content">
   <div data-role="collapsible" data-state="collapsed">
@@ -42,12 +91,18 @@
 	    <input type="search" name="location" id="search" value="" />
 	</div>
 	</form>
-   </div>  
+	
+   </div>
+  
   </div>
 </div>
+
 <!-- /END OF MAIN PAGE -->
 
+
+
 <!-- /REGISTER A FIND PAGE -->
+
  <div data-role="page" id="register">
   <div data-role="header">
 	<a href="#home" data-icon="arrow-l">Back</a>
@@ -78,25 +133,38 @@
 				<div class="ui-block-a"><button type="submit" data-theme="d">Cancel</button></div>
 				<div class="ui-block-b"><button type="submit" data-theme="a">Submit</button></div>
 	  </fieldset>
-     </div>   
+     </div>
+   
   </div>
-<!-- /END OF REGISTER A FIND PAGE -->
 </div>
+<!-- /END OF REGISTER A FIND PAGE -->
+
 
 <!-- /MAP PAGE -->
+
 <div data-role="page" id="map">
   <div data-role="header">
 	<a href="#home" data-icon="arrow-l">Back</a>
     <h1>Map</h1>
+	
   </div>
 
   	<div data-role="content">
-		<p>Lost person</p>		
+		<!-- /HTML 5 Button  -->
+		<!--><p><button id="geoButton" >Find my location</button></p>-->
+		<!-- /END OF HTML 5 Button -->
+		
+		<!-- /JQUERY Button  -->
+		<p><a href="#map" data-role="button" data-icon="forward" id="geoButton">show map</a></p>
+		<!-- /END OF JQUERY Button -->
 	</div>
+	
 </div>
 <!-- /END OF MAP PAGE -->
 
+
 <!-- /FINDINGS LIST PAGE -->
+
 <div data-role="page" id="items">
   <div data-role="header">
 	<a href="#home" data-icon="arrow-l">Back</a>
@@ -105,7 +173,6 @@
 
   	<div data-role="content">
 		<ul data-role="listview">
-			
 			<li>
 				<img src="" />
 				<h3><a href="">Persons</a></h3>
@@ -114,9 +181,9 @@
 			
 		</ul>
 	</div>
+ </div>
 </div>
 <!-- /END OF FINDINGS LIST PAGE -->
-</div>
 
 </body>
 </html>

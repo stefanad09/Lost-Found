@@ -1,0 +1,7 @@
+.DS_Store
+thumb.db
+*~
+tmp
+build/android/bin
+build/android/gen
+build/iphone
